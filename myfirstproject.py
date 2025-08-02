@@ -1,4 +1,4 @@
-#
+#https://github.com/aneka400/Links.git
 a = input("Введите вид питомца:")
 b = input("Введите кличку питомца:")
 c = input("Введите возраст питомца:")
