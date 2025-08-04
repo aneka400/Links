@@ -89,3 +89,14 @@ B = int(input())
 for i in range(A, B + 1):
     if i % 2 == 0:
         print(i, end=" ")
+
+tmp = input()
+if tmp == tmp[::-1]:
+    print("YES")
+else:
+    print("NO")
+
+tmp = input()
+a = tmp.split()
+b = "".join(a)
+print(b)
