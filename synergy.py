@@ -229,3 +229,104 @@ while True:
         print("Неизвестная команда. Попробуйте снова.")
    
 input("Press Enter to continue...")
+
+import random
+r = int(input())
+c = int(input())
+matrix_1 = [[random.randint(1, 999) for i in range(c)] for j in range(r)]
+for row in matrix_1:
+    print(row)
+
+x = int(input())
+y = int(input())
+matrix_2 = [[random.randint(1, 999) for i in range(y)] for j in range(x)]
+for row in matrix_2:
+    print(row)
+matrix_3 = [[0 for j in range(y)] for i in range(x)]
+for i in range(x):
+    for j in range(y):
+        matrix_3[i][j] = matrix_1[i][j] + matrix_2[i][j]
+for row in matrix_3:
+    print(row)
+
+my_list = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16]
+
+def tmp(my_list, n=0):
+    if n ==  len(my_list):
+        print("конец списка")
+        return
+    print(my_list[n])
+    tmp(my_list, n + 1)
+tmp(my_list)
+    
+class Transport:
+   def __init__(self, name, max_speed, mileage):
+       self.name = name
+       self.max_speed = max_speed
+       self.mileage = mileage 
+
+autobus = Transport("Renault Logan", 180, 12) 
+print(f"Название: {autobus.name},  скорость: {autobus.max_speed} , Пробег: {autobus.mileage}")
+
+class Transport:
+   def __init__(self, name, max_speed, mileage):
+       self.name = name
+       self.max_speed = max_speed
+       self.mileage = mileage 
+   def seating_capacity(self, capacity):
+       return f"Вместимость одного автобуса {self.name}  {capacity} пассажиров"
+
+class Autobus(Transport):
+   def seating_capacity(self, capacity):# переопределение метода
+       return f"Вместимость автобуса {self.name}  {capacity} пассажиров"
+autobus = Autobus("Renault Logan", 180, 12)
+print(autobus.seating_capacity(50))
+
+class Cassa():
+    def __init__(self, initiaal_amount =0):
+        self.amount = initiaal_amount
+
+    def top_up(self, X):
+        self.amount += X
+    
+    def count_1000(self):
+        return self.amount // 1000
+    
+    def take_away(self, X):
+        if self.amount >= X:
+            self.amount -= X
+            return True
+        else:
+            print(f"Недостаточно средств. Текущая сумма: {self.amount}, запрошенная сумма: {X}")
+        
+Cassa = Cassa(1500)
+print(f"Начальная сумма: {Cassa.amount}")
+Cassa.top_up(500)
+print(f"Сумма после пополнения: {Cassa.amount}")
+print(f"Количество 1000 в кассе: {Cassa.count_1000()}")
+Cassa.take_away(1200)
+print(f"Сумма после снятия: {Cassa.amount}")
+
+class Turtle():
+    def __init__(self, x, y, s):
+        self.x = x
+        self.y = y
+        self.s = s
+    def go_up(self):
+        self.y += self.s
+    def go_down(self):
+        self.y -= self.s
+    def go_left(self):
+        self.x -= self.s
+    def go_right(self):
+        self.y += self.s
+    def evolve(self, s):
+        self.s += 1
+    def degrade(self):
+        if self.s > 1:
+            self.s -= 1
+        if self.s <= 0:
+            print("Скорость не может быть меньше или равна нулю")
+    def count_moves(self, x2, y2):
+        return (self.x - x2) + (self.y - y2)
+        
